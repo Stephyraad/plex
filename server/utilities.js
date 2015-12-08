@@ -17,12 +17,12 @@ module.exports.evalAlg = function(userInput, dataType) {
 
   TODO: include 60 - 90 second timeout for pow5 and pow6 depending on results
   */
-  var pow2 = runTimeAverage(userInput, data[6], 8);
-  var pow3 = runTimeAverage(userInput, data[7], 6);
-  var pow4 = runTimeAverage(userInput, data[8], 3);
-  var pow5 = getRunTime(userInput, data[9]);
-  var pow6 = getRunTime(userInput, data[10]);
-  var pow7 = getRunTime(userInput, data[11]);
+  var pow2 = runTimeAverage(userInput, data[1], 8);
+  var pow3 = runTimeAverage(userInput, data[2], 6);
+  var pow4 = runTimeAverage(userInput, data[3], 3);
+  var pow5 = getRunTime(userInput, data[4]);
+  var pow6 = getRunTime(userInput, data[5]);
+  // var pow7 = getRunTime(userInput, data[5]);
 
   return [pow2, pow3, pow4, pow5, pow6, pow7];
 }
