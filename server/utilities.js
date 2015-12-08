@@ -4,7 +4,11 @@ module.exports.evalAlg = function(userInput, dataType) {
   console.log('U4-evaluating algorithm with server data');
 
   // TODO: add queries file, get data inputs from database, save in respective variables
-  var data = queries.getData(dataType);
+  var data = queries.getData().then(function(data) {
+      for(var i=0; i<data.length; i++) {
+        console.log("in utilities.js: ", data[i].array.length);
+      }
+  })
 
   /* 
   powX represents tests for data size Math.pow(10, X). e.g. 10^3 for 1,000
@@ -13,21 +17,16 @@ module.exports.evalAlg = function(userInput, dataType) {
 
   TODO: include 60 - 90 second timeout for pow5 and pow6 depending on results
   */
-  var pow2 = runTimeAverage(userInput, data[0], 8);
-  var pow3 = runTimeAverage(userInput, data[1], 6);
-  var pow4 = runTimeAverage(userInput, data[2], 3);
-  var pow5 = getRunTime(userInput, data[3]);
-  var pow6 = getRunTime(userInput, data[4]);
-  // var pow7 = getRunTime(userInput, data[5]);
+  var pow2 = runTimeAverage(userInput, data[6], 8);
+  var pow3 = runTimeAverage(userInput, data[7], 6);
+  var pow4 = runTimeAverage(userInput, data[8], 3);
+  var pow5 = getRunTime(userInput, data[9]);
+  var pow6 = getRunTime(userInput, data[10]);
+  var pow7 = getRunTime(userInput, data[11]);
 
-  return [pow2, pow3, pow4, pow5, pow6];
+  return [pow2, pow3, pow4, pow5, pow6, pow7];
 }
 
-var data = queries.getData().then(function(data) {
-    for(var i=0; i<data.length; i++) {
-      console.log("in utilities.js: ", data[i].array.length);
-    }
-})
 
 module.exports.getCoords = function(data) {
   console.log('U24-getting graph coordinates from evaluation data');
