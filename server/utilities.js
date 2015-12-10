@@ -1,4 +1,4 @@
-var queries = require('./queries.js');
+// var queries = require('./queries.js');
 
 module.exports.evalAlg = function(userInput, dataType) {
   console.log('U4-evaluating algorithm with server data');
