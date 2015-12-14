@@ -33,6 +33,6 @@ exports.getIntegers = function() {
 }; 
 
 // ---- To Drop Collection in DB -----
-// integerModel.remove({}, function(){
+// integerModel.remove({}, function() {
 //  console.log("db dropped");
-// })
+// });
