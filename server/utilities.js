@@ -10,6 +10,7 @@ module.exports.evalAlg = function(userInput, dataType) {
     var pow2, pow3, pow4, pow5, pow6;
 
     queries.getData(dataType).then(function(data) {
+      console.log("DATABOO :", data[0].array.length);
       /*
       powX represents tests for data size Math.pow(10, X). e.g. 10^3 for 1,000
       skip pow1 because results not accurate for input size < 100

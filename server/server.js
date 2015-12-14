@@ -25,11 +25,19 @@ app.post('/parse/:dataType', mid.evalForAllInputSizes, function(req, res) {
 
 app.use(webpackMiddleware(compiler));
 
-app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
+// app.get('*', function(req, res) {
+//   res.sendFile(path.resolve(__dirname, '../client/index.html'));
+// });
+
+
+app.get('/test', function(req, res){
+	integerController.getIntegers()
+		.then(function(data){
+			res.send(data)
+		})
 });
 
-// app.get('/test', integerController.getIntegers);
-// app.post('/test', integerController.postIntegers);
+
+app.post('/test', integerController.postIntegers);
 
 app.listen(port);
