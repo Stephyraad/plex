@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express'); 
 var mongoose = require('mongoose');
 var integer = require('../datagenerator');
 
@@ -8,7 +8,7 @@ var integerSchema = mongoose.Schema({
 
 var integerModel = mongoose.model('integers', integerSchema);
 
-// ----------- To populate the DB ------------
+// ----------- To populate DB ------------
 exports.postIntegers = function(req, res) {
   var newInteger = new integerModel();
   newInteger.array = integer;
@@ -24,15 +24,15 @@ exports.postIntegers = function(req, res) {
   });
 };
 
-//-------- To fetch data from the DB ------
+//-------- To fetch data from the DB ------ 
 exports.getIntegers = function() {
   console.log('Getting Integers');
   return integerModel.find({}, function(err, foundData) {
     // return foundData[0].array;
   });
-};
+}; 
 
 // ---- To Drop Collection in DB -----
 // integerModel.remove({}, function(){
 //  console.log("db dropped");
-// });
+// })
