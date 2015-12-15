@@ -6,6 +6,7 @@ var webpackMiddleware = require('webpack-dev-middleware');
 var config = require('../webpack.config.js');
 var mid = require('./middleware.js');
 var integerController = require('./routes/integerController');
+var stringController = require('./routes/stringController');
 var utils = require('./utilities.js');
 
 var app = express();
@@ -24,11 +25,15 @@ app.post('/parse/:dataType', mid.evalForAllInputSizes, function(req, res) {
 
 app.use(webpackMiddleware(compiler));
 
-app.get('*', function(req, res) {
-  res.sendFile(path.resolve(__dirname, '../client/index.html'));
-});
+// app.get('*', function(req, res) {
+//   res.sendFile(path.resolve(__dirname, '../client/index.html'));
+// });
 
-app.get('/test', integerController.getIntegers);
-app.post('/test', integerController.postIntegers);
+//------------ Routes to populate db ----------
+app.post('/test/interger', integerController.postIntegers);
+app.get('/test/interger', integerController.getIntegers);
+app.post('/test/string', stringController.postStrings);
+app.get('/test/string', stringController.getStrings);
+
 
 app.listen(port);

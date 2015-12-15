@@ -1,6 +1,6 @@
 var express = require('express'); 
 var mongoose = require('mongoose');
-var integer = require('../datagenerator');
+var fakeData = require('../datagenerator');
 
 var integerSchema = mongoose.Schema({
   array: [ { type: Number } ]
@@ -11,24 +11,21 @@ var integerModel = mongoose.model('integers', integerSchema);
 // ----------- To populate DB ------------
 exports.postIntegers = function(req, res) {
   var newInteger = new integerModel();
-  newInteger.array = integer;
-  console.log("INTEGER:" + integer.length);
+  newInteger.array = fakeData.integer;
+  console.log("Integers:" + integer.length);
   newInteger.save(function(err, data) {
     if (err) {
-      console.log(err);
       res.status(500).send();
     } else {
-      console.log("DATA: " + data);
+      console.log("Data: " + data);
       res.send(data);
     }
   });
 };
 
-//-------- To fetch data from the DB ------ 
+//-------- To fetch data from DB ------ 
 exports.getIntegers = function() {
-  console.log('Getting Integers');
   return integerModel.find({}, function(err, foundData) {
-    // return foundData[0].array;
   });
 }; 
 

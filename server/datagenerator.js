@@ -7,13 +7,13 @@ var server = require('./server');
 // //   integers.push(i);
 // // }
 // // console.log("Integer " , integer.length);
-// module.exports = integers;
+// module.exports.integers = integers;
 
 // ------ String Generator --------
 var strings =[];
-for(var i = 10000; i > 0; i--) {
-	strings.push(faker.hacker.adjective());
-}
+// for(var i = 10000; i > 0; i--) {
+// 	strings.push(faker.hacker.adjective());
+// }
 console.log("String", strings.length);
-module.exports = strings;
+module.exports.strings = strings;
 
