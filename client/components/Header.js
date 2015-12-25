@@ -3,7 +3,7 @@
 */
 
 var React = require('react');
-var Tutorial = require('./Tutorial');
+var TutorialModal = require('./TutorialModal');
 
 var Header = React.createClass({
   render: function() {
@@ -16,7 +16,7 @@ var Header = React.createClass({
     return (
       <nav role="navigation" style={style}>
         <h1>{ this.props.header }</h1>
-        <Tutorial />
+        <TutorialModal />
       </nav>
     )
   }
