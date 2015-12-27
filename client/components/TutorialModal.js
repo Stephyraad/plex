@@ -8,7 +8,13 @@ var Modal = require('react-modal');
 var TutorialModal = React.createClass({
  
   getInitialState: function() {
-    return { modalIsOpen: false };
+    if(!window.localStorage && !window.localStorage.isReturningVisitor){
+      // return window.setTimeout(function(){
+        return { modalIsOpen: true };
+     // }, 3000);
+    } else {
+      return { modalIsOpen: false };
+    }
   },
  
   openModal: function() {
@@ -27,14 +33,14 @@ var TutorialModal = React.createClass({
         left              : 0,
         right             : 0,
         bottom            : 0,
-        backgroundColor   : 'rgba(255, 255, 255, 0.75)'
+        backgroundColor   : 'rgba(0, 0, 0, 0.5)'
       },
       content : {
         position                   : 'absolute',
-        top                        : '40px',
-        left                       : '40px',
-        right                      : '40px',
-        bottom                     : '40px',
+        // top                        : '40px',
+        // left                       : '40px',
+        // right                      : '40px',
+        // bottom                     : '40px',
         border                     : '1px solid #ccc',
         background                 : '#fff',
         overflow                   : 'auto',
@@ -47,6 +53,8 @@ var TutorialModal = React.createClass({
         right                 : 'auto',
         bottom                : 'auto',
         marginRight           : '-50%',
+        width                 : '700px',
+        heigth                : '500px',
         transform             : 'translate(-50%, -50%)'
       }
     }
@@ -56,7 +64,7 @@ var TutorialModal = React.createClass({
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
-          style={style} >
+          style={style} className="modal-tutorial" >
  
           <h2>How to Plex It</h2>
           <form>
