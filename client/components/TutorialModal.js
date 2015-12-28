@@ -60,7 +60,7 @@ var TutorialModal = React.createClass({
     }
     return (
       <div>
-        <button onClick={this.openModal}>How to PlexIt</button>
+        <button className="btn-tutorial" onClick={this.openModal}>How to PlexIt</button>
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.closeModal}
