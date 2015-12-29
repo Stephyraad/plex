@@ -3,6 +3,7 @@
 */
 
 var React = require('react');
+var About = require('./About');
 
 var Header = React.createClass({
   render: function() {
@@ -15,6 +16,7 @@ var Header = React.createClass({
     return (
       <nav role="navigation" style={style}>
         <h1>{ this.props.header }</h1>
+        <About />
       </nav>
     )
   }
