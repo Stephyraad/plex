@@ -11,7 +11,7 @@ var possibleRunTimes = {'a': 'O(n)', 'b': 'O(n^2)', 'c': 'O(nlogn)'};
 // algoData is of the from [[inputSize, time]];
 
 
-function computeTheta(algorithm) {
+var computeTheta = module.exports.computeTheta = function(algorithm) {
 
   var quick = createDataSet(100, 10000, 1000, quicksort, 3);
   var counting = createDataSet(100, 10000, 1000, countingsort, 3);
